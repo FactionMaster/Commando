@@ -1,8 +1,6 @@
 <?php
 
-
 namespace CortexPE\Commando\store;
-
 
 use CortexPE\Commando\exception\CommandoException;
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
@@ -31,7 +29,7 @@ class SoftEnumStore {
 	}
 
 	public static function updateEnum(string $enumName, array $values):void {
-		if(self::getEnumByName($enumName) === null){
+		if (self::getEnumByName($enumName) === null) {
 			throw new CommandoException("Unknown enum named " . $enumName);
 		}
 		self::$enums[$enum->getName()] = $enum = new CommandEnum($enumName, $values);
@@ -39,7 +37,7 @@ class SoftEnumStore {
 	}
 
 	public static function removeEnum(string $enumName):void {
-		if(($enum = self::getEnumByName($enumName)) === null){
+		if (($enum = self::getEnumByName($enumName)) === null) {
 			throw new CommandoException("Unknown enum named " . $enumName);
 		}
 		unset(static::$enums[$enumName]);
